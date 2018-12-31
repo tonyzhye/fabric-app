@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 
 import logo from './logo.svg';
 
@@ -21,6 +22,12 @@ class App extends Component {
           >
             Learn React
           </a>
+          <br />
+          <DefaultButton
+            text="I am Default Button"
+            primary={true}
+          />
+          <br />
         </header>
       </div>
     );
