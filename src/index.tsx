@@ -1,18 +1,63 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { initializeIcons } from '@uifabric/icons';
-
-import App from './App';
+import ReactGA from 'react-ga';
+import { Fabric } from 'office-ui-fabric-react/lib/Fabric';
+import { initializeIcons } from 'office-ui-fabric-react/lib/Icons';
 
 import './index.scss';
+import App from './app';
+import { gaCode, isMobile } from './config';
+// TODO: enable PWA later
+// import registerServiceWorker from './register-service-worker';
 
-// import * as serviceWorker from './serviceWorker';
+// Redirect to mobile version if needed
+function redirectForMobile() {
+  if (isMobile) {
+    const pathname = window.location.pathname;
+    const prefix = pathname.substring(0, 3);
+    if (prefix !== '/m/') {
+      const newPathname = '/m' + pathname;
+      const origin = window.location.origin;
+      const redirectUrl = origin + newPathname;
+      window.location.href = redirectUrl;
+    }
+  }
+}
+
+function loadResource() {
+  // tslint:disable-next-line
+  if (window['Promise'] === undefined) {
+    require('es6-promise').polyfill();
+  }
+
+  if (isMobile) {
+    /**
+     * Load needed resource for mobile
+     */
+    // require('./mobile-base.css');
+  } else {
+    /**
+     * Load needed resource for desktop
+     */
+    // require('./desktop-base.css');
+  }
+}
 
 initializeIcons();
 
-ReactDOM.render(<App />, document.getElementById('root'));
+redirectForMobile();
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-// serviceWorker.unregister();
+loadResource();
+
+if (gaCode !== '') {
+  ReactGA.initialize(gaCode);
+  ReactGA.pageview(window.location.pathname + window.location.search);
+}
+
+ReactDOM.render(
+  <Fabric>
+    <App />
+  </Fabric>,
+  document.getElementById('root') as HTMLElement
+);
+// registerServiceWorker();

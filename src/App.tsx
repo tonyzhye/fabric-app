@@ -1,37 +1,81 @@
-import React, { Component } from 'react';
-import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
+import React from 'react';
+import createBrowserHistory from 'history/createBrowserHistory';
+import { Router, Route, Switch } from 'react-router';
+import { configure } from 'mobx';
+import { Provider } from 'mobx-react';
+// import { isEmpty } from 'ramda';
+import Loadable from 'react-loadable';
 
-import logo from './logo.svg';
+import { createStores } from './stores';
+import { loadingPage } from './components/loading-page';
 
-import './App.scss';
+const Site = Loadable({
+  loader: () => import(/* webpackChunkName: 'site' */'./pages/site'),
+  loading: loadingPage,
+});
 
-class App extends Component {
-  render() {
+// don't allow state modifications outside actions
+configure({ enforceActions: 'observed' });
+
+const history = createBrowserHistory();
+const store = createStores(history);
+
+/*
+const token = getToken();
+if (!isEmpty(token)) {
+  store.auth.login(token);
+  initRestAdapter();
+}
+*/
+
+export default class App extends React.Component<{}, {}> {
+  constructor(props: {}) {
+    super(props);
+  }
+
+  private getUrlPath(to: string): string {
+    const encodeUrl = encodeURIComponent(window.location.href);
+    return `${to}?url=${encodeUrl}`;
+  }
+
+  private renderNoneAuthRouters() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
+      <Switch>
+        <Route
+          path="/m/"
+          exact={true}
+          component={Site}
+        />
+        <Route 
+          path="/" 
+          exact={true}
+          component={Site}
+        />
+      </Switch>
+    );
+  }
+
+  public render() {
+    // const { auth } = store;
+    // const isAuth = auth.authenticated;
+    // const routers = (isAuth) ? this.renderAuthedRouters() : this.renderNoneAuthRouters();
+    const noused = '';
+    const routers = this.renderNoneAuthRouters();
+
+    return (
+      <div className="wrapper">
+        <Router history={history}>
+          <Provider 
+            store={store}
+            // auth={store.auth}
+            // user={store.user}
+            // kanban={store.kanban}
+            router={store.router}
           >
-            Learn React
-          </a>
-          <br />
-          <DefaultButton
-            text="I am Default Button"
-            primary={true}
-          />
-          <br />
-        </header>
+            {routers}
+          </Provider>
+        </Router>
       </div>
     );
   }
 }
-
-export default App;

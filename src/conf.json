@@ -1,0 +1,9 @@
+{
+  "_comments": "Settings for react app",
+  "cookieDomain": "yetione.com",
+  "tokenCookieName": "access_token",
+  "apiRootUrl": "https://api.yetione.com/",
+  "loginRootUrl": "https://www.yetione.com/auth/",
+  "siteUrl": "http://dev.yetione.com:3000",
+  "gaCode": "UA-000000-01"
+}
