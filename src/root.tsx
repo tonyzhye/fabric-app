@@ -28,7 +28,7 @@ if (!isEmpty(token)) {
 }
 */
 
-export default class App extends React.Component<{}, {}> {
+export default class Root extends React.Component<{}, {}> {
   constructor(props: {}) {
     super(props);
   }

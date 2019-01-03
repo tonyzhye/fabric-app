@@ -5,7 +5,7 @@ import { Fabric } from 'office-ui-fabric-react/lib/Fabric';
 import { initializeIcons } from 'office-ui-fabric-react/lib/Icons';
 
 import './index.scss';
-import App from './app';
+import Root from './root';
 import { gaCode, isMobile } from './config';
 // TODO: enable PWA later
 // import registerServiceWorker from './register-service-worker';
@@ -56,7 +56,7 @@ if (gaCode !== '') {
 
 ReactDOM.render(
   <Fabric>
-    <App />
+    <Root />
   </Fabric>,
   document.getElementById('root') as HTMLElement
 );
