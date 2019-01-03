@@ -1,15 +1,30 @@
+$fontColor: #262626;
+
 .top-nav {
   position: fixed;
   top: 0;
 
-  display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   margin: 0;
   padding: 1rem;
+  box-sizing: border-box;
   z-index: 1000;
   background-color: rgba(255, 255, 255, 0.95);
+
+  a {
+    text-decoration: none;
+    color: $fontColor;
+    &:visited {
+      color: $fontColor;
+    }
+  }
+
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
 }
 .mobile-top-nav {
   position: absolute !important;
