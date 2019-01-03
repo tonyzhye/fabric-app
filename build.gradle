@@ -1,0 +1,21 @@
+plugins {
+    id "com.moowork.node" version "1.2.0"
+}
+
+// Change gradle output path.
+// To avoid conflict with create-react-ts output path
+project.buildDir = 'gradle-build'
+
+group = 'com.yetione'
+version = '0.1.1'
+
+// install without breaking package-lock.json
+task npmCiInstall(type: NpmTask) {
+    group = 'node'
+		args = ['ci']
+}
+
+task npmBuild(type: NpmTask, dependsOn: npmCiInstall) {
+    group = 'node'
+    args = ['run', 'build']
+}

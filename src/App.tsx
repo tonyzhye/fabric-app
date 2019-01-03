@@ -59,7 +59,6 @@ export default class App extends React.Component<{}, {}> {
     // const { auth } = store;
     // const isAuth = auth.authenticated;
     // const routers = (isAuth) ? this.renderAuthedRouters() : this.renderNoneAuthRouters();
-    const noused = '';
     const routers = this.renderNoneAuthRouters();
 
     return (
