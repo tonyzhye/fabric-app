@@ -13,6 +13,10 @@ const Site = Loadable({
   loader: () => import(/* webpackChunkName: 'site' */'./pages/site'),
   loading: loadingPage,
 });
+const NotFound = Loadable({
+  loader: () => import(/* webpackChunkName: 'notfound' */'./pages/desktop/not-found'),
+  loading: loadingPage,
+});
 
 // don't allow state modifications outside actions
 configure({ enforceActions: 'observed' });
@@ -51,6 +55,7 @@ export default class Root extends React.Component<{}, {}> {
           exact={true}
           component={Site}
         />
+        <Route component={NotFound} />
       </Switch>
     );
   }
