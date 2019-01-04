@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "run-p lint:watch start-with-map",
+    "start": "run-p start-with-map",
+    "start_": "run-p lint:watch start-with-map",
     "build": "run-s clean lint build-with-map remove-map",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -50,6 +51,7 @@
     "@types/react-router": "^4.4.3",
     "@types/react-router-dom": "^4.3.1",
     "chokidar-cli": "^1.2.1",
+    "cross-env": "^5.2.0",
     "node-sass": "^4.11.0",
     "npm-run-all": "^4.1.5",
     "rimraf": "^2.6.2",

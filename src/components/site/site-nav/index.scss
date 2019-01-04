@@ -1,8 +1,10 @@
-$fontColor: #262626;
+$fontColor: rgb(38, 38, 38);
+$hoverFontcolor: rgba(38, 38, 38, 0.8);
 
 .top-nav {
-  position: fixed;
-  top: 0;
+  // position: fixed;
+  // top: 0;
+  position: relative;
 
   align-items: center;
   justify-content: space-between;
@@ -24,6 +26,16 @@ $fontColor: #262626;
   .navbar-brand {
     font-weight: 700;
     font-size: 1.25rem;
+  }
+  .nav-signin {
+    font-weight: 500;
+    font-size: 1rem;
+    float: right;
+    padding-top: 2px;
+
+    &:hover {
+      color: $hoverFontcolor;
+    }
   }
 }
 .mobile-top-nav {

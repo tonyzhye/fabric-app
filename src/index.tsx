@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactGA from 'react-ga';
-import { Fabric } from 'office-ui-fabric-react/lib/Fabric';
+// import { Fabric } from 'office-ui-fabric-react/lib/Fabric';
 import { initializeIcons } from 'office-ui-fabric-react/lib/Icons';
 
 import './index.scss';
@@ -55,9 +55,7 @@ if (gaCode !== '') {
 }
 
 ReactDOM.render(
-  <Fabric>
-    <Root />
-  </Fabric>,
+  <Root />,
   document.getElementById('root') as HTMLElement
 );
 // registerServiceWorker();

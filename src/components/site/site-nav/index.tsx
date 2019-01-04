@@ -1,10 +1,13 @@
 import React, { SFC } from 'react';
+import { Link } from 'react-router-dom';
+
+import { getWebSiginUrl } from '../../../utils';
 
 import './index.scss';
 
-interface Props {}
+export const SiteNav: SFC<{}> = (props) => {
+  const signInUrl = getWebSiginUrl();
 
-export const SiteNav: SFC<Props> = (props) => {
   return (
     <nav className="top-nav">
       <div className="container-fluid no-gutters">
@@ -13,7 +16,7 @@ export const SiteNav: SFC<Props> = (props) => {
             <a className="navbar-brand" href="#">Kanban for One</a>
           </div>
           <div className="col-4 col-md-2">
-            {props.children}
+            <Link to={signInUrl} className="nav-signin">Sign in</Link>
           </div>
         </div>
       </div>

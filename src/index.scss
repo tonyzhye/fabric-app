@@ -1,4 +1,4 @@
-$fontColor: #262626;
+$fontColor: rgb(38, 38, 38);
 
 @import 'bootstrap/scss/bootstrap-grid.scss';
 
@@ -9,18 +9,14 @@ body {
   height: 100%;
   box-sizing: border-box;
   line-height: 1;
-  font-family: "Graphik", "Helvetica Neue", helvetica, "Apple Color Emoji", sans-serif;
-  /*
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  */
+  font-family: "Segoe UI", "Roboto", "Helvetica Neue", helvetica, "Apple Color Emoji", sans-serif;
+  font-size: 16px;
+  // font-size: calc(1.6em + 0.5vw);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   vertical-align: baseline;
   color: $fontColor;
-
-  background-color: yellowgreen;
+  background-color: transparent;
 }
 
 body {
@@ -31,9 +27,13 @@ body {
   margin-right: 0;
   margin-left: 0;
 
-  .col,
+  .col, 
   [class*="col-"] {
     padding-right: 0;
     padding-left: 0;
   }
+}
+
+.text-center {
+  text-align: center !important;
 }
