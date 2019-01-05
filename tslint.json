@@ -47,6 +47,7 @@
     "no-unused-variable": [true, {"ignore-pattern": "^_"}],
     "no-use-before-declare": true,
     "ordered-imports": false,
+    "object-literal-sort-keys": false,
     "quotemark": [true, "single", "jsx-double"],
     "radix": true,
     "semicolon": [true, "always"],
