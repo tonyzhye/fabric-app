@@ -1,9 +1,13 @@
 import React from 'react';
 import { inject } from 'mobx-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 import { STORE_AUTH } from '../../../constants';
 import { AuthStore } from '../../../stores';
-// import { LoginSNS, getLoginUrl } from 'src/utils';
+import { LoginSNS, getLoginUrl } from '../../../utils';
+
+import brandImg from '../../../assets/brand.png';
 
 import './index.scss';
 
@@ -15,7 +19,7 @@ export interface LoginProps {
 export default class Login extends React.Component<LoginProps, {}> {
   constructor(props: LoginProps) {
     super(props);
-    // this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
   }
 
   public render() {
@@ -36,54 +40,54 @@ export default class Login extends React.Component<LoginProps, {}> {
       </BaseMaster>
     */
     return (
-      <div>
-        <div>Sign In</div>
+      <div id="signin-container">
+        <div className="container signin-box">
+          <div className="row justify-content-center">
+            <div className="col-xs-12 col-md-8 col-lg-6 text-center signin-dialog">
+              <img src={brandImg} className="" alt="Brand" />
+              <h1>Sign In to Kanban for One</h1>
+
+              <div className="signin-buttons-container">
+                {this.renderSignInButton(LoginSNS.Github)}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 
-  /*
-  private handleLogin(loginPath: string): void {
-    window.location.href = getLoginUrl(loginPath);
-  }
-
   private renderSignInButton(type: LoginSNS) {
-    const faIconClassNameCommon = 'yt-login-sign-icon fa fa-2x';
-    const btnClassNameCommon = 'yt-login-btn-sign';
-
     let title = 'Connect with ';
-    let faIconClassName = '';
-    let signButtonClassName = '';
     let loginUrl = '';
+    let faIcon = faGithub;
 
     switch (type) {
       case LoginSNS.Github:
-        title = 'Connect with Github';
-        faIconClassName = faIconClassNameCommon + ' fa-inverse fa-github';
-        signButtonClassName = btnClassNameCommon + ' yt-login-btn-sign-github';
+        title = 'Use Github Account';
         loginUrl = 'github';
+        faIcon = faGithub;
         break;
       default:
         title = 'Connect with Unknown';
-        faIconClassName = faIconClassNameCommon;
-        signButtonClassName = btnClassNameCommon;
         loginUrl = '';
     }
 
     return (
       <button 
-        className={signButtonClassName} 
-        onClick={() => this.handleLogin(loginUrl)} 
-        title={title}
+        className="signin-button"
+        onClick={() => this.handleLogin(loginUrl)}
       >
-        <i className={faIconClassName} />
-        <div className="yt-login-label-set">
-          <span className="yt-login-sign-title">
-            {title}
-          </span>
-        </div>
+        <FontAwesomeIcon icon={faIcon} size="2x" />
+        <span>
+          {title}
+        </span>
       </button>
     );
   }
-  */
+
+  private handleLogin(loginPath: string): void {
+    window.location.href = getLoginUrl(loginPath);
+  }
+  
 }

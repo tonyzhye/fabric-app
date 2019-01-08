@@ -1,5 +1,8 @@
 import React, { SFC } from 'react';
 import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faGem, faPaperPlane, faNewspaper } from '@fortawesome/free-solid-svg-icons';
 
 import { SiteNav } from '../../components/site/site-nav';
 import { getWebSiginUrl } from '../../utils';
@@ -11,6 +14,7 @@ import './index.scss';
 
 const Site: SFC<{}> = () => {
   const url = getWebSiginUrl();
+  const iconColor = '#f05f40';
 
   return (
     <div>
@@ -52,7 +56,7 @@ const Site: SFC<{}> = () => {
             <div className="row">
               <div className="col-lg-4 col-md-6 text-center">
                 <div className="service-box mt-5 mx-auto">
-                  <i className="fa fa-4x fa-diamond text-primary mb-3 sr-icons" />
+                  <FontAwesomeIcon size="4x" color={iconColor} icon={faGem} />
                   <h3 className="mb-3">Overview of your to do list</h3>
                   <p className="text-muted mb-0">
                     The kanban helps you keep an eye on your progress and get visibility over 
@@ -62,7 +66,7 @@ const Site: SFC<{}> = () => {
               </div>
               <div className="col-lg-4 col-md-6 text-center">
                 <div className="service-box mt-5 mx-auto">
-                  <i className="fa fa-4x fa-paper-plane text-primary mb-3 sr-icons" />
+                  <FontAwesomeIcon size="4x" color={iconColor} icon={faPaperPlane} />
                   <h3 className="mb-3">Don't multi-task</h3>
                   <p className="text-muted mb-0">
                     Multi-tasking is at least majorly inefficient. 
@@ -73,7 +77,7 @@ const Site: SFC<{}> = () => {
               </div>
               <div className="col-lg-4 col-md-6 text-center">
                 <div className="service-box mt-5 mx-auto">
-                  <i className="fa fa-4x fa-newspaper-o text-primary mb-3 sr-icons" />
+                  <FontAwesomeIcon size="4x" color={iconColor} icon={faNewspaper} />
                   <h3 className="mb-3">From idea to completion</h3>
                   <p className="text-muted mb-0">
                     By tracking your tasks, you’ll become more organised, 
@@ -94,13 +98,13 @@ const Site: SFC<{}> = () => {
             </div>
             <div className="row text-center mt-5">
               <div className="col-lg-4 ml-auto">
-                <i className="fa fa-github fa-3x mb-3 sr-contact" />
+                <FontAwesomeIcon size="3x" className="mb-3 sr-contact" icon={faGithub} />
                 <p>
                   On <a target="_blank" href="https://github.com/tonyzhye">Github</a>
                 </p>
               </div>
               <div className="col-lg-4 mr-auto">
-                <i className="fa fa-twitter fa-3x mb-3 sr-contact" />
+                <FontAwesomeIcon size="3x" className="mb-3 sr-contact" icon={faTwitter} />
                 <p>
                   On <a target="_blank" href="https://twitter.com/tonyzhye">Twitter</a>
                 </p>
