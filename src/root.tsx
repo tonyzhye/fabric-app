@@ -14,10 +14,19 @@ const Site = Loadable({
   loader: () => import(/* webpackChunkName: 'site' */'./pages/site'),
   loading: loadingPage,
 });
+
+const Dashboard = Loadable({
+  loader: () => {
+    return import(/* webpackChunkName: 'dashboard' */'./pages/desktop/dashboard');
+  },
+  loading: loadingPage,
+});
+
 const Login = Loadable({
   loader: () => import(/* webpackChunkName: 'login' */'./pages/desktop/login'),
   loading: loadingPage,
 });
+
 const NotFound = Loadable({
   loader: () => import(/* webpackChunkName: 'notfound' */'./pages/desktop/not-found'),
   loading: loadingPage,
@@ -98,17 +107,6 @@ export default class Root extends React.Component<{}, {}> {
           path="/kanban/:id(\d+)"
           component={Kanban}
         />
-
-        <Route
-          path="/m/"
-          exact={true}
-          component={MobileDashboard}
-        />
-        <Route 
-          path="/" 
-          exact={true}
-          component={Dashboard}
-        />
     */
     return (
       <Switch>
@@ -123,6 +121,16 @@ export default class Root extends React.Component<{}, {}> {
           render={_ => (
             <Redirect to="/" />
           )} 
+        />
+        <Route
+          path="/m/"
+          exact={true}
+          component={Dashboard}
+        />
+        <Route 
+          path="/" 
+          exact={true}
+          component={Dashboard}
         />
         <Route component={NotFound} />
       </Switch>
