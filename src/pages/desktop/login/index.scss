@@ -4,10 +4,10 @@ $break-small: 575.98px;
   height: 100vh;
   background-color: #f6f2ef;;
 
-  .signin-box {
+  .yt-signin-box {
     padding-top: 10rem;
 
-    .signin-dialog {
+    .yt-signin-dialog {
       background-color: #fff;
       padding-top: 2rem;
       padding-bottom: 2rem;
@@ -19,14 +19,14 @@ $break-small: 575.98px;
       }
 
       h1 {
-        font-weight: bold;
-        font-size: 1.4rem;
+        font-weight: 600;
+        font-size: 1.3rem;
         margin-top: 15px;
         margin-bottom: 40px;
       }
 
-      .signin-buttons-container {
-        .signin-button {
+      .yt-signin-buttons-container {
+        .yt-signin-button {
           display: inline-block;
           width: 100%;
           max-width: 100%;
@@ -38,7 +38,8 @@ $break-small: 575.98px;
           text-decoration: none;
           text-align: center;
           font-weight: 600;
-          font-size: 105%;
+          // font-size: 1rem;
+          // font-size: 105%;
           vertical-align: middle;
           cursor: pointer;
           box-sizing: border-box;
@@ -54,10 +55,10 @@ $break-small: 575.98px;
   @media (max-width: $break-small) {
     background-color: #fff;
 
-    .signin-box {
+    .yt-signin-box {
       padding-top: 4rem;
 
-      .signin-dialog {
+      .yt-signin-dialog {
         box-shadow: none;
       }
     }

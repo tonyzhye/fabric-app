@@ -113,6 +113,12 @@ export default class Root extends React.Component<{}, {}> {
     return (
       <Switch>
         <Route 
+          path="/m/signin" 
+          render={_ => (
+            <Redirect to="/" />
+          )} 
+        />
+        <Route 
           path="/signin" 
           render={_ => (
             <Redirect to="/" />

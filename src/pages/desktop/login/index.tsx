@@ -41,13 +41,13 @@ export default class Login extends React.Component<LoginProps, {}> {
     */
     return (
       <div id="signin-container">
-        <div className="container signin-box">
+        <div className="container yt-signin-box">
           <div className="row justify-content-center">
-            <div className="col-xs-12 col-md-8 col-lg-6 text-center signin-dialog">
+            <div className="col-xs-12 col-md-8 col-lg-6 text-center yt-signin-dialog">
               <img src={brandImg} className="" alt="Brand" />
               <h1>Sign In to Kanban for One</h1>
 
-              <div className="signin-buttons-container">
+              <div className="yt-signin-buttons-container">
                 {this.renderSignInButton(LoginSNS.Github)}
               </div>
             </div>
@@ -75,7 +75,7 @@ export default class Login extends React.Component<LoginProps, {}> {
 
     return (
       <button 
-        className="signin-button"
+        className="yt-signin-button"
         onClick={() => this.handleLogin(loginUrl)}
       >
         <FontAwesomeIcon icon={faIcon} size="2x" />

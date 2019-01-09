@@ -23,6 +23,10 @@ body {
   display: block;
 }
 
+button {
+  color: $fontColor;
+}
+
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
