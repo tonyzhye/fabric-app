@@ -137,7 +137,7 @@ export default class Root extends React.Component<{}, {}> {
     );
   }
 
-  public render() {
+  render() {
     const { auth } = store;
     const isAuth = auth.authenticated;
     const routers = (isAuth) ? this.renderAuthedRouters() : this.renderNoneAuthRouters();

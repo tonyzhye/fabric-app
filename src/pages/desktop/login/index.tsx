@@ -22,7 +22,7 @@ export default class Login extends React.Component<LoginProps, {}> {
     this.handleLogin = this.handleLogin.bind(this);
   }
 
-  public render() {
+  render() {
     /*
       <BaseMaster>
         <Row>
