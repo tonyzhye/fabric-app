@@ -10,9 +10,9 @@ export interface DashboardProps {
 }
 
 interface InjectedDashboardProps extends DashboardProps {
-  userStore: UserStore;
-  kanbanStore: KanbanStore;
-  routerStore: RouterStore;
+  user: UserStore;
+  kanban: KanbanStore;
+  router: RouterStore;
 }
 
 /*
@@ -34,8 +34,8 @@ export default class Dashboard extends React.Component<DashboardProps, {}> {
   }
 
   componentDidMount() {
-    const { userStore } = this.injected;
-    userStore.loadUserInfoAndKanbans();
+    const { user } = this.injected;
+    user.loadUserInfoAndKanbans();
   }
 
   render() {
