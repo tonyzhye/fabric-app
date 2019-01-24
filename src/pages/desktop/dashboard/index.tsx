@@ -3,6 +3,7 @@ import { inject, observer } from 'mobx-react';
 
 import { UserStore, KanbanStore, RouterStore } from '../../../stores';
 import { STORE_USER, STORE_KANBAN, STORE_ROUTER } from '../../../constants';
+import { BaseMaster } from '../../../components/desktop/base-master';
 
 import './index.scss';
 
@@ -15,13 +16,6 @@ interface InjectedDashboardProps extends DashboardProps {
   router: RouterStore;
 }
 
-/*
-@inject(allStore => ({
-  user: allStore[STORE_USER] as UserStore,
-  kanban: allStore[STORE_KANBAN] as KanbanStore,
-  router: allStore[STORE_ROUTER] as RouterStore,
-}))
-*/
 @inject(STORE_USER, STORE_KANBAN, STORE_ROUTER)
 @observer
 export default class Dashboard extends React.Component<DashboardProps, {}> {
@@ -40,7 +34,11 @@ export default class Dashboard extends React.Component<DashboardProps, {}> {
 
   render() {
     return (
-      <div>Dashboard</div>
+      <BaseMaster>
+        <main role="main" className="container main-container">
+          <div>Dashboard</div>
+        </main>
+      </BaseMaster>
     );
   }
 }
