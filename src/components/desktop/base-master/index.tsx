@@ -53,10 +53,23 @@ export class BaseMaster extends React.Component<BaseMasterProps, {}> {
   private renderHeader() {
     return (
       <header>
-        <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-          <a className="navbar-brand" href="#">Fixed navbar</a>
+        <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark kfo-navbar">
+          {this.renderLeftHeading()}
         </nav>
       </header>
     );
+  }
+
+  private renderLeftHeading() {
+    const { leftHeading } = this.props;
+    if (leftHeading !== undefined) {
+      return leftHeading;
+    } else {
+      return (
+        <Link to="/" className="navbar-brand">
+          Kanban <span className="kfo-short-desc">for One</span>
+        </Link>
+      );
+    }
   }
 }

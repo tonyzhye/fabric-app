@@ -1,7 +1,16 @@
 $fontColor: rgb(38, 38, 38);
+$navbar-background-color: #0E5A8A;
 
-// @import 'bootstrap/scss/bootstrap.scss';
-@import 'bootstrap/scss/bootstrap-grid.scss';
+@import 'bootstrap/scss/_functions.scss';
+@import 'bootstrap/scss/_variables.scss';
+@import 'bootstrap/scss/_mixins.scss';
+@import 'bootstrap/scss/_root.scss';
+@import 'bootstrap/scss/_reboot.scss';
+@import 'bootstrap/scss/_type.scss';
+@import 'bootstrap/scss/_utilities.scss';
+// @import 'bootstrap/scss/_nav.scss';
+@import 'bootstrap/scss/_navbar.scss';
+@import 'bootstrap/scss/_grid.scss';
 
 body {
   margin: 0;
